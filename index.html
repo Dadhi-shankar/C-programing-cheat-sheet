@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Language Cheat Sheet</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #1a73e8;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #202124;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #1a73e8;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #444;
+            margin-top: 20px;
+            font-size: 1.4em;
+        }
+        p {
+            margin: 10px 0;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        code {
+            font-family: 'Consolas', monospace;
+            background: #e8ecef;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #1a73e8;
+            color: #fff;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .updated {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            pre {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>C Language Cheat Sheet</h1>
+        <p class="updated"><strong>Last Updated:</strong> March 19, 2025</p>
+        <p>This cheat sheet provides a comprehensive overview of C programming concepts for beginners and experienced programmers.</p>
+
+        <h2>Basic Syntax</h2>
+        <h3>Hello World Program</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+int main() {
+    printf("Hello World!");
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong> <code>Hello World!</code></p>
+        <ul>
+            <li><code>#include &lt;stdio.h&gt;</code>: Includes standard I/O library for <code>printf()</code>.</li>
+            <li><code>int main()</code>: Program entry point.</li>
+            <li><code>printf()</code>: Prints text to console.</li>
+            <li><code>return 0</code>: Indicates successful termination.</li>
+        </ul>
+
+        <h2>Variables</h2>
+        <p><strong>Syntax:</strong></p>
+        <pre><code>data_type variable_name;
+data_type variable_name = initial_value;
+        </code></pre>
+        <p><strong>Types:</strong> Local, Global, Static, Extern, Auto, Register</p>
+        <p><strong>Naming Rules:</strong></p>
+        <ul>
+            <li>Only alphabets, digits, and underscores.</li>
+            <li>Must start with an alphabet or underscore.</li>
+            <li>No whitespace or reserved keywords.</li>
+        </ul>
+
+        <h2>Data Types</h2>
+        <h3>Basic Data Types</h3>
+        <table>
+            <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+            <tr><td><code>char</code></td><td>Characters</td><td><code>char c = 'a';</code></td></tr>
+            <tr><td><code>int</code></td><td>Integers</td><td><code>int i = 24;</code></td></tr>
+            <tr><td><code>float</code></td><td>Decimal (6-7 precision)</td><td><code>float f = 24.32;</code></td></tr>
+            <tr><td><code>double</code></td><td>Decimal (15 precision)</td><td><code>double d = 24.3435;</code></td></tr>
+            <tr><td><code>void</code></td><td>Valueless</td><td><code>void v;</code></td></tr>
+        </table>
+        <p><strong>Modifiers:</strong> <code>short</code>, <code>long</code>, <code>signed</code>, <code>unsigned</code></p>
+        <h3>Derived Data Types</h3>
+        <ul>
+            <li>Arrays</li>
+            <li>Pointers</li>
+        </ul>
+        <h3>User-Defined Data Types</h3>
+        <ul>
+            <li>Structure</li>
+            <li>Union</li>
+            <li>Enumeration</li>
+        </ul>
+
+        <h2>Input/Output</h2>
+        <h3>printf()</h3>
+        <pre><code>printf("formatted-string", ...arguments);</code></pre>
+        <h3>scanf()</h3>
+        <pre><code>scanf("formatted-string", &address-of-variables);</code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int roll_num;
+    char name[50];
+    scanf("Enter Roll No.: %d", &roll_num);
+    scanf("Enter Name: %s", name);
+    printf("Name is %s and Roll Number is %d", name, roll_num);
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong> (Input: <code>20</code>, <code>GeeksforGeeks</code>)<br>
+        <code>Name is GeeksforGeeks and Roll Number is 20</code></p>
+
+        <h2>Format Specifiers</h2>
+        <table>
+            <tr><th>Specifier</th><th>Description</th></tr>
+            <tr><td><code>%c</code></td><td>Character</td></tr>
+            <tr><td><code>%d</code></td><td>Signed integer</td></tr>
+            <tr><td><code>%f</code></td><td>Float</td></tr>
+            <tr><td><code>%lf</code></td><td>Double</td></tr>
+            <tr><td><code>%s</code></td><td>String</td></tr>
+            <tr><td><code>%p</code></td><td>Pointer</td></tr>
+            <tr><td><code>%u</code></td><td>Unsigned int</td></tr>
+            <tr><td><code>%%</code></td><td>Prints %</td></tr>
+        </table>
+
+        <h2>Operators</h2>
+        <table>
+            <tr><th>Type</th><th>Description</th><th>Examples</th></tr>
+            <tr><td>Arithmetic</td><td>Mathematical operations</td><td><code>+, -, *, /, %</code></td></tr>
+            <tr><td>Relational</td><td>Compare values</td><td><code>&lt;, &gt;, &lt;=, &gt;=, ==, !=</code></td></tr>
+            <tr><td>Logical</td><td>Logical operations</td><td><code>&&, ||, !</code></td></tr>
+            <tr><td>Bitwise</td><td>Bit-level operations</td><td><code>&, |, ^, &lt;&lt;, &gt;&gt;, ~</code></td></tr>
+            <tr><td>Assignment</td><td>Assign values</td><td><code>=, +=, -=, *=</code></td></tr>
+            <tr><td>Conditional</td><td>Ternary operator</td><td><code>?:</code></td></tr>
+        </table>
+
+        <h2>Conditional Statements</h2>
+        <h3>if Statement</h3>
+        <pre><code>if (condition) {
+    // statements
+}
+        </code></pre>
+        <h3>if-else Statement</h3>
+        <pre><code>if (condition) {
+    // if block
+} else {
+    // else block
+}
+        </code></pre>
+        <h3>switch Statement</h3>
+        <pre><code>switch (expression) {
+    case value1:
+        // ascend;
+    case value2:
+        // statements
+        break;
+    default:
+        // default block
+        break;
+}
+        </code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int i = 5 < 25 ? 10 : 20;
+    if (i == 10)
+        printf("i is 10");
+    else if (i == 15)
+        printf("i is 15");
+    else if (i == 20)
+        printf("i is 20");
+    else
+        printf("i is not present");
+}
+        </code></pre>
+        <p><strong>Output:</strong> <code>i is 10</code></p>
+
+        <h2>Loops</h2>
+        <h3>for Loop</h3>
+        <pre><code>for (initialization; condition; update) {
+    // statements
+}
+        </code></pre>
+        <h3>while Loop</h3>
+        <pre><code>while (condition) {
+    // statements
+}
+        </code></pre>
+        <h3>do-while Loop</h3>
+        <pre><code>do {
+    // statements
+} while (condition);
+        </code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int i;
+    for (i = 1; i <= 10; i++) {
+        if (i == 5 || i == 7) {
+            continue;
+        }
+        printf("%d ", i);
+    }
+    printf("\n");
+    i = 1;
+    while (i <= 10) {
+        if (i == 7) {
+            break;
+        }
+        printf("%d ", i++);
+    }
+    printf("\n");
+    i = 1;
+    do {
+        printf("%d ", i++);
+    } while (i <= 10);
+    printf("\n");
+    i = 1;
+any_label:
+    printf("%d ", i++);
+    if (i <= 10) {
+        goto any_label;
+    }
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong><br>
+        <code>1 2 3 4 6 8 9 10<br>1 2 3 4 5 6<br>1 2 3 4 5 6 7 8 9 10<br>1 2 3 4 5 6 7 8 9 10</code></p>
+
+        <h2>Arrays</h2>
+        <p><strong>Syntax:</strong></p>
+        <pre><code>data_type arr_name[size1]; // 1D array
+data_type arr_name[size1][size2]; // 2D array
+        </code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    arr[2] = 100;
+    printf("Elements in Array: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong> <code>Elements in Array: 10 20 100 40 50</code></p>
+
+        <h2>Strings</h2>
+        <p><strong>Syntax:</strong></p>
+        <pre><code>char string_name[] = "text";
+        </code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char str[] = "Geeks";
+    printf("%s\n", str);
+    printf("Length of string str is %d", strlen(str));
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong><br>
+        <code>Geeks<br>Length of string str is 5</code></p>
+
+        <h2>Pointers</h2>
+        <p><strong>Syntax:</strong></p>
+        <pre><code>data_type *ptr_name;</code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int var = 10;
+    int* ptr = &var;
+    printf("Value at ptr = %p\n", ptr);
+    printf("Value at var = %d\n", var);
+    printf("Value at *ptr = %d\n", *ptr);
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong> (Address varies)<br>
+        <code>Value at ptr = 0x7ffd62e6408c<br>Value at var = 10<br>Value at *ptr = 10</code></p>
+
+        <h2>Functions</h2>
+        <p><strong>Prototype:</strong></p>
+        <pre><code>return_type function_name(parameter_type_list);
+        </code></pre>
+        <p><strong>Definition:</strong></p>
+        <pre><code>return_type function_name(parameter_type_list) {
+    // statements
+}
+        </code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+int sum(int a, int b) {
+    return a + b;
+}
+int main() {
+    int add = sum(10, 30);
+    printf("Sum is: %d", add);
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong> <code>Sum is: 40</code></p>
+
+        <h2>Dynamic Memory Management</h2>
+        <table>
+            <tr><th>Function</th><th>Description</th><th>Syntax</th></tr>
+            <tr><td><code>malloc()</code></td><td>Allocates memory block</td><td><code>malloc(size_t size);</code></td></tr>
+            <tr><td><code>calloc()</code></td><td>Allocates multiple blocks, initializes to 0</td><td><code>calloc(size_t num, size_t size);</code></td></tr>
+            <tr><td><code>realloc()</code></td><td>Resizes allocated memory</td><td><code>realloc(void *ptr, size_t new_size);</code></td></tr>
+            <tr><td><code>free()</code></td><td>Deallocates memory</td><td><code>free(ptr);</code></td></tr>
+        </table>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main() {
+    int* ptr = (int*)malloc(sizeof(int) * 10);
+    int* ptr2 = (int*)calloc(10, sizeof(int));
+    printf("malloc Array Size: %d\n", 10);
+    printf("calloc Array Size: %d\n", 10);
+    ptr = realloc(ptr, sizeof(int) * 5);
+    printf("malloc Array Size after using realloc: %d", 5);
+    free(ptr);
+    free(ptr2);
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong><br>
+        <code>malloc Array Size: 10<br>calloc Array Size: 10<br>malloc Array Size after using realloc: 5</code></p>
+
+        <h2>Structures</h2>
+        <p><strong>Syntax:</strong></p>
+        <pre><code>struct struct_name {
+    member_type1 name1;
+    member_type2 name2;
+};
+struct struct_name var1, var2;
+        </code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+struct str1 {
+    int i;
+    char c;
+    float f;
+    char s[30];
+};
+struct str2 {
+    int ii;
+    char cc;
+    float ff;
+} var;
+int main() {
+    struct str1 var1 = {1, 'A', 1.00, "GeeksforGeeks"}, var2;
+    struct str2 var3 = {.ff = 5.00, .ii = 5, .cc = 'a'};
+    var2 = var1;
+    printf("Struct 1:\n\ti = %d, c = %c, f = %f, s = %s\n", var1.i, var1.c, var1.f, var1.s);
+    printf("Struct 2:\n\ti = %d, c = %c, f = %f, s = %s\n", var2.i, var2.c, var2.f, var2.s);
+    printf("Struct 3:\n\ti = %d, c = %c, f = %f\n", var3.ii, var3.cc, var3.ff);
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong><br>
+        <code>Struct 1:<br>&nbsp;&nbsp;&nbsp;&nbsp;i = 1, c = A, f = 1.000000, s = GeeksforGeeks<br>Struct 2:<br>&nbsp;&nbsp;&nbsp;&nbsp;i = 1, c = A, f = 1.000000, s = GeeksforGeeks<br>Struct 3:<br>&nbsp;&nbsp;&nbsp;&nbsp;i = 5, c = a, f = 5.000000</code></p>
+
+        <h2>Unions</h2>
+        <p><strong>Syntax:</strong></p>
+        <pre><code>union union_name {
+    member_type1 name1;
+    member_type2 name2;
+};
+        </code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+union un {
+    int member1;
+    char member2;
+    float member3;
+};
+int main() {
+    union un var1;
+    var1.member1 = 15;
+    printf("The value stored in member1 = %d", var1.member1);
+    return 0;
+}
+        </code></pre>
+        <p><strong>Output:</strong> <code>The value stored in member1 = 15</code></p>
+
+        <h2>Conclusion</h2>
+        <p>This C Cheat Sheet is a comprehensive reference for programmers of all levels. Use it to streamline your C programming endeavors.</p>
+    </div>
+</body>
+</html>
