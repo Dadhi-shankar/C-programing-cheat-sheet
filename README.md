@@ -1,17 +1,15 @@
 # C Programming Cheat Sheet
 
-![C Cheat Sheet Preview](https://via.placeholder.com/800x400.png?text=C+Cheat+Sheet+Preview)  
-*A comprehensive, interactive reference guide for C programming concepts.*
+![C Cheat Sheet Preview](https://via.placeholder.com/800x400.png?text=C+Programming+Cheat+Sheet+Preview)  
+*A concise, interactive web-based reference for C programming concepts.*
 
 ## Overview
 
-The **C Programming Cheat Sheet** is a high-quality, single-page web application designed to serve as a quick reference for C programming. It covers essential concepts, from basic syntax to advanced topics like dynamic memory management, structures, and file handling. Built with HTML, CSS, and JavaScript, the cheat sheet is hosted on GitHub Pages and features a clean, responsive design with collapsible sections for easy navigation.
-
-This project is created and maintained by **CodeMaster** (replace with your name or brand). All content is original, professionally written, and avoids third-party phrasing.
+The **C Programming Cheat Sheet** is a single-page web application designed as a quick reference for C programming. It covers fundamental and advanced topics, making it an ideal resource for both beginners and experienced developers. Built with HTML, CSS, and JavaScript in a single `index.html` file, the cheat sheet features a modern, responsive design with collapsible sections for easy navigation. Hosted on GitHub Pages, it is created and maintained by **Dadhi Shankar**.
 
 ## Features
 
-- **Comprehensive Content**: Includes:
+- **Comprehensive Coverage**: Includes key C programming topics:
   - Basic Syntax
   - Variables and Data Types
   - Input/Output Operations
@@ -27,16 +25,17 @@ This project is created and maintained by **CodeMaster** (replace with your name
   - Enumerations
   - File Handling
   - Preprocessor Directives
-- **Interactive Design**: Collapsible sections for each topic, toggled by clicking headers.
-- **Responsive Layout**: Adapts seamlessly to desktop and mobile devices.
-- **Custom Styling**: Manual CSS with dark-themed code blocks and a professional, clean aesthetic.
-- **Watermark**: Branded with "Created by CodeMaster" for attribution.
-- **Single File**: All HTML, CSS, and JavaScript in `index.html` for simplicity.
+- **Interactive Interface**: Click section headers to toggle content visibility.
+- **Responsive Design**: Adapts seamlessly to desktop and mobile devices.
+- **Custom Styling**: Clean, modern CSS with dark-themed code blocks for readability.
+- **Watermark**: Branded with "Created by Dadhi Shankar" for attribution.
+- **Single File**: All code (HTML, CSS, JavaScript) in `index.html`, with no external dependencies.
 
 ## Live Demo
 
-View the cheat sheet live at: [https://<your-username>.github.io/c-cheat-sheet/](https://<your-username>.github.io/c-cheat-sheet/)  
-(Replace `<your-username>` with your GitHub username.)
+View the cheat sheet live at: [https://dadhi-shankar.github.io/C-programing-cheat-sheet/](https://dadhi-shankar.github.io/C-programing-cheat-sheet/)
+
+**Note**: The repository name contains a typo (“C-programing” instead of “C-programming”). See [Renaming the Repository](#renaming-the-repository) for correction steps.
 
 ## Getting Started
 
@@ -47,5 +46,5 @@ View the cheat sheet live at: [https://<your-username>.github.io/c-cheat-sheet/]
 ### Setup Instructions
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/<your-username>/c-cheat-sheet.git
-   cd c-cheat-sheet
+   git clone https://github.com/dadhi-shankar/C-programing-cheat-sheet.git
+   cd C-programing-cheat-sheet
